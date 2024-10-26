@@ -5,7 +5,7 @@ def convert_input(value):
     except ValueError:
         return float(value)
 
-# Створення змінних та надання їм float або int значень
+# Створення змінних та надання їм float або int значень -
 a = convert_input(input("Введіть значення для змінної a: "))
 b = convert_input(input("Введіть значення для змінної b: "))
 c = convert_input(input("Введіть значення для змінної c: "))
