@@ -1,10 +1,15 @@
+import re
+
 def count_words_starting_with_letter(text, letter):
-    # Розбиваємо рядок на слова
-    words = text.split()
-    # Приводимо літеру до нижнього регістру
     letter = letter.lower()
-    # Рахуємо кількість слів, що починаються з заданої літери
-    count = sum(1 for word in words if word.lower().startswith(letter))
+    count = 0
+
+    words = text.split()
+    for word in words:
+        cleaned_word = re.sub(r'^[^\wА-Яа-я]+', '', word)
+        if cleaned_word.lower().startswith(letter):
+            count += 1
+
     return count
 
 input_text = """Розцвітають квіти в Україні,
@@ -12,7 +17,7 @@ input_text = """Розцвітають квіти в Україні,
 Вітри дмуть, пташки співають,
 Сонце гріє, все навколо.
 Від Карпат до Криму простягнулись,
-Сади, поля — краса безмежна.
+Сади, поля — !!!краса безмежна.
 Любов в серцях наших горить,
 Квіти в Україні — наш вічний спів."""
 print(input_text)

@@ -1,0 +1,7 @@
+14 - Even
+3 - Odd
+6 - Even
+5 - Odd
+-3 - Odd
+4 - Even
+-13 - Odd

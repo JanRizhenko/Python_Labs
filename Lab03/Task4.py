@@ -1,8 +1,9 @@
 text = """На широкому лузі зеленому пасуться коні. А далі, де сонце сходить, козаки на конях у дозорі."""
 
 print("Текст:\n",text)
-count_replacements = text.count('а')
+count_replacements = text.count('а') + text.count('A')
 text = text.replace('а', 'о')
+text = text.replace('A', 'O')
 
 total_characters = len(text)
 

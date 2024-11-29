@@ -89,4 +89,4 @@ for n in range(1, 7):
     print("Завдання 8:")
     filter_list(nums, bottom, upper)
 
-    print("=" * 50)
+    print("=" * 75)
