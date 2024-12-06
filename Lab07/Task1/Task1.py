@@ -32,7 +32,7 @@ class Person:
         return f"{self.surname} {self.first_name}"
 
 
-def create_person_from_input_and_save_to_csv(filename):
+def create_person(filename):
     print("Введіть дані для створення нового контакту.")
     surname = input("Прізвище: ").strip()
     first_name = input("Ім'я: ").strip()
@@ -48,7 +48,7 @@ def create_person_from_input_and_save_to_csv(filename):
             print(f"Псевдонім: {person.nickname}")
 
         with open(filename, 'a', newline='', encoding='utf-8') as file:
-            writer = csv.DictWriter(file, fieldnames=["surname", "name", "birth_date", "fullname", "age", "nickname"])
+            writer = csv.DictWriter(file, fieldnames=["surname", "name", "birth_date","nickname"])
 
             if file.tell() == 0:
                 writer.writeheader()
@@ -57,8 +57,6 @@ def create_person_from_input_and_save_to_csv(filename):
                 "surname": person.surname,
                 "name": person.first_name,
                 "birth_date": person.birth_date,
-                "fullname": person.get_fullname(),
-                "age": person.get_age(),
                 "nickname": person.nickname or ''
             })
 
@@ -68,6 +66,50 @@ def create_person_from_input_and_save_to_csv(filename):
     except Exception as e:
         print(f"Невідома помилка: {e}")
 
+def modifier(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            reader = csv.DictReader(file)
+            fieldnames = reader.fieldnames
+
+            if not {'surname', 'name', 'birth_date'}.issubset(set(fieldnames)):
+                raise ValueError("Файл повинен містити графи 'surname', 'name', 'birth_date'.")
+
+            extended_fieldnames = fieldnames.copy()
+            if 'fullname' not in extended_fieldnames:
+                extended_fieldnames.insert(extended_fieldnames.index('name') + 1, 'fullname')
+            if 'age' not in extended_fieldnames:
+                extended_fieldnames.append('age')
+
+            modified_rows = []
+            for row in reader:
+                surname = row['surname'].strip()
+                name = row['name'].strip()
+                birth_date = row['birth_date'].strip()
+
+                person = Person(surname, name, birth_date)
+
+                row['fullname'] = person.get_fullname()
+                row['age'] = person.get_age()
+
+                modified_rows.append(row)
+
+        with open(filename, 'w', encoding='utf-8', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=extended_fieldnames)
+            writer.writeheader()
+            writer.writerows(modified_rows)
+
+        print("Файл успішно модифіковано.")
+    except FileNotFoundError:
+        print(f"Помилка: Файл {filename} не знайдено.")
+    except ValueError as e:
+        print(f"Помилка: {e}")
+    except Exception as e:
+        print(f"Невідома помилка: {e}")
+
+
 
 if __name__ == "__main__":
-    create_person_from_input_and_save_to_csv('contacts.csv')
+    create_person('contacts.csv')
+if __name__ == "__main__":
+    modifier('contacts.csv')
