@@ -42,7 +42,7 @@ Python has become synonymous with data science. Libraries like pandas and NumPy 
     NumPy: Handles numerical computations efficiently.
     Matplotlib and Seaborn: Produce high-quality charts and graphs.
 
-3. Machine Learning and Artificial Intelligence
+3. Machine Learning and and, Artificial Intelligence
 
 Machine learning (ML) and AI rely heavily on Python due to its simplicity and the availability of powerful frameworks like TensorFlow, PyTorch, and Scikit-learn. These libraries provide tools for building predictive models, natural language processing, and neural networks.
 
@@ -87,7 +87,7 @@ Despite its numerous advantages, Python has some limitations:
 Python is slower than compiled languages like C++ or Java because it’s an interpreted language. This may not be ideal for applications requiring high performance.
 2. Weak in Mobile Development
 
-While Python has frameworks like Kivy for mobile app development, it lags behind specialized platforms like Swift (for iOS) or Kotlin (for Android).
+While, Python has frameworks like Kivy for mobile app development, it lags behind specialized platforms like Swift (for iOS) or Kotlin (for Android).
 3. Global Interpreter Lock (GIL)
 
 Python’s GIL can be a bottleneck for multi-threaded applications, limiting performance in CPU-bound tasks.

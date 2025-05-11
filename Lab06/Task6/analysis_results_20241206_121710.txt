@@ -1,0 +1,52 @@
+Analysis performed on: 2024-12-06 12:17:10
+Time taken for analysis: 0.00 seconds
+
+Letter Frequency:
+e: 687
+i: 595
+a: 580
+n: 554
+t: 534
+o: 517
+s: 477
+r: 380
+l: 368
+p: 247
+d: 245
+c: 237
+h: 213
+m: 205
+g: 201
+y: 174
+u: 171
+f: 158
+b: 101
+w: 84
+v: 76
+k: 62
+x: 19
+j: 12
+z: 5
+q: 3
+
+Word Frequency:
+and: 64
+python: 35
+of: 28
+to: 28
+the: 25
+for: 23
+is: 20
+a: 20
+its: 16
+like: 15
+in: 14
+it: 11
+data: 11
+libraries: 10
+python's: 9
+on: 9
+language: 8
+an: 8
+developers: 8
+programming: 7
